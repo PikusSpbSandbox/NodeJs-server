@@ -1,0 +1,19 @@
+{
+  "name": "nodejs-web-server-php",
+  "version": "0.1.0",
+  "description": "Sample implementation of node.js server using `express` web server and PHP proxy for cheap hosting",
+  "keywords": ["Web server", "Node.js", "express", "node.js using PHP", "run node.js using PHP"],
+  "main": "web-server.js",
+  "scripts": {},
+  "author": {
+    "name" : "Petr Savelev",
+    "email" : "petr.savelev.direct@gmail.com",
+    "url" : "https://pikus.spb.ru"
+  },
+  "homepage": "https://github.com/PikusSpbSandbox/NodeJs-web-server-php",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}
