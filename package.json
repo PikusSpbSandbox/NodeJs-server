@@ -1,6 +1,9 @@
 {
   "name": "nodejs-web-server-php",
   "version": "0.1.0",
+  "scripts": {
+    "build": "webpack --mode production"
+  },
   "description": "Sample implementation of node.js server using `express` web server and PHP proxy for cheap hosting",
   "keywords": [
     "Web server",
@@ -10,7 +13,6 @@
     "run node.js using PHP"
   ],
   "main": "web-server.js",
-  "scripts": {},
   "author": {
     "name": "Petr Savelev",
     "email": "petr.savelev.direct@gmail.com",
@@ -19,8 +21,14 @@
   "homepage": "https://github.com/PikusSpbSandbox/NodeJs-web-server-php",
   "license": "MIT",
   "dependencies": {
+    "copy-webpack-plugin": "^11.0.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "mysql2": "^3.0.1"
+  },
+  "devDependencies": {
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-node-externals": "^3.0.0"
   }
 }
