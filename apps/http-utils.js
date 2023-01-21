@@ -2,7 +2,7 @@ import https from 'https';
 
 const RETRY_COUNT = 5;
 
-export default class Http {
+export default class HttpUtils {
   request(url) {
     return new Promise((resolve, reject) => {
       https.get(url, (res) => {

@@ -19,8 +19,8 @@ module.exports = {
     plugins: [  new CopyPlugin({
         patterns: [
             {
-                from: "*.php",
-                to: "[path][name][ext]",
+                from: "php-proxy/*.php",
+                to: "[name][ext]",
             }
         ],
         options: {

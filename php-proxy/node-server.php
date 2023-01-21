@@ -3,9 +3,6 @@
 
   set_time_limit(120);
 
-  const SCRIPT_PATH = "~/www/<path to 'web-server.js' on your hosting>"; // change this according to your hosting
-  const REQUEST_URL = "http://localhost:" . NODE_PORT; // url of node.js web server on hosting (do not change)
-
   $node_pid = intval(file_get_contents(NODE_PID_FILE));
   if($node_pid === 0) {
     $node_pid = exec("PORT=".NODE_PORT." node ".SCRIPT_PATH." ".NODE_PORT." >".NODE_OUT_FILE." 2>&1 & echo $!");
