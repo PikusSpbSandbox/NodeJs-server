@@ -2,7 +2,8 @@
   "name": "nodejs-web-server-php",
   "version": "0.1.0",
   "scripts": {
-    "build": "webpack --mode production"
+    "build": "webpack --mode development",
+    "build-prod": "webpack --mode production"
   },
   "description": "Sample implementation of node.js server using `express` web server and PHP proxy for cheap hosting",
   "keywords": [
