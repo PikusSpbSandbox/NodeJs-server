@@ -86,9 +86,6 @@ export default class WeatherApp {
         this.labels.average = weatherHistory.map(item => Object.keys(item)[0]);
         this.values.average = weatherHistory.map(item => Object.values(item)[0]);
 
-        console.log(this.labels);
-        console.log(this.values);
-
         return {
             labels: this.labels,
             values: this.values
