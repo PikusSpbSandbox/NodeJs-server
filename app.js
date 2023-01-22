@@ -10,7 +10,7 @@ const weatherApp = new WeatherApp();
 import CurrencyApp from './apps/currency/currency-app';
 const currencyApp = new CurrencyApp();
 
-const APP_PORT = 8181;
+const APP_PORT = 8082;
 
 expressApp.listen(APP_PORT, () => {
   console.log(`Web server is listening on port ${APP_PORT}`);

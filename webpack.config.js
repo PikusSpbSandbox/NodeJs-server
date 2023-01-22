@@ -21,6 +21,14 @@ module.exports = {
             {
                 from: "php-proxy/*.php",
                 to: "[name][ext]",
+            },
+            {
+                from: "php-proxy/node-out.log",
+                to: "[name][ext]",
+            },
+            {
+                from: "php-proxy/.node-pid",
+                to: "[name][ext]",
             }
         ],
         options: {

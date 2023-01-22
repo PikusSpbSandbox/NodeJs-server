@@ -3,6 +3,8 @@
 
   set_time_limit(120);
 
+  $queryString = $_SERVER['QUERY_STRING'];
+
   $node_pid = intval(file_get_contents(NODE_PID_FILE));
   if($node_pid === 0) {
     $node_pid = exec("PORT=".NODE_PORT." node ".SCRIPT_PATH." ".NODE_PORT." >".NODE_OUT_FILE." 2>&1 & echo $!");
@@ -15,7 +17,7 @@
     }
   }
   // Make request to node.js web server using curl
-  $curl = curl_init(REQUEST_URL);
+  $curl = curl_init(REQUEST_URL."/".$queryString);
   // Add headers if any
   curl_setopt($curl, CURLOPT_HEADER, 1);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);

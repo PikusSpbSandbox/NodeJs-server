@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 21, 2023 at 12:58 AM
+-- Generation Time: Jan 22, 2023 at 09:40 PM
 -- Server version: 8.0.31
 -- PHP Version: 7.4.33
 
@@ -30,11 +30,12 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `currency`;
 CREATE TABLE IF NOT EXISTS `currency` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `date` date NOT NULL,
+  `date` varchar(10) CHARACTER SET cp1251 COLLATE cp1251_general_ci DEFAULT NULL,
   `usd` decimal(6,3) DEFAULT NULL,
-  `eur` decimal(6,3) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `eur` decimal(6,3) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `date` (`date`)
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `currency`
@@ -49,7 +50,8 @@ INSERT INTO `currency` (`id`, `date`, `usd`, `eur`) VALUES
 (6, '2023-01-18', '68.873', '74.588'),
 (7, '2023-01-19', '68.847', '74.406'),
 (8, '2023-01-20', '68.847', '74.406'),
-(9, '2023-01-21', '68.666', '74.343');
+(9, '2023-01-21', '68.666', '74.343'),
+(10, '2023-01-22', '68.666', '74.343');
 
 -- --------------------------------------------------------
 
@@ -60,11 +62,12 @@ INSERT INTO `currency` (`id`, `date`, `usd`, `eur`) VALUES
 DROP TABLE IF EXISTS `lightday`;
 CREATE TABLE IF NOT EXISTS `lightday` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `date` date NOT NULL,
-  `start` time DEFAULT NULL,
-  `end` time NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `date` varchar(10) CHARACTER SET cp1251 COLLATE cp1251_general_ci NOT NULL,
+  `start` varchar(5) CHARACTER SET cp1251 COLLATE cp1251_general_ci DEFAULT NULL,
+  `end` varchar(5) CHARACTER SET cp1251 COLLATE cp1251_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `date` (`date`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -75,11 +78,11 @@ CREATE TABLE IF NOT EXISTS `lightday` (
 DROP TABLE IF EXISTS `weather`;
 CREATE TABLE IF NOT EXISTS `weather` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `date` varchar(10) NOT NULL,
+  `date` varchar(10) CHARACTER SET cp1251 COLLATE cp1251_general_ci NOT NULL,
   `value` decimal(6,3) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `date` (`date`)
-) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;;
 
 --
 -- Dumping data for table `weather`
@@ -103,7 +106,8 @@ INSERT INTO `weather` (`id`, `date`, `value`) VALUES
 (18, '2023-01-18', '1.904'),
 (19, '2023-01-19', '3.103'),
 (20, '2023-01-20', '1.492'),
-(21, '2023-01-21', '-0.158');
+(21, '2023-01-21', '-0.158'),
+(24, '2023-01-22', '0.119');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
