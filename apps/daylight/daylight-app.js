@@ -82,13 +82,11 @@ export default class DaylightApp {
         }
 
         this.labels = historyData.map(item => item.date);
-        this.values = historyData.map(item => item.sunrise);
-        this.values2 = historyData.map(item => item.sunset);
+        this.values = historyData.map(item => [item.sunrise, item.sunset]);
 
         return {
             labels: this.labels,
-            values: this.values,
-            values2: this.values2
+            values: this.values
         };
     }
 
