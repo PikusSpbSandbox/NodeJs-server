@@ -9,12 +9,13 @@ export default class DaylightApp {
     http = new HttpUtils();
     labels = {};
     values = {};
+    longitude = '';
 
     requestDaylight() {
         return this.http.makeRequest(API_URL).catch(err => console.error(err));
    }
 
-    async processData(data = {sunrise:  null, sunset: null}) {
+    async processData(data = {sunrise:  null, sunset: null, longitude: ''}) {
         const pool = mysql.createPool(DB_CONFIG);
         const now = new Date();
         const month = String(now.getMonth() + 1).padStart(2, '0');
@@ -83,10 +84,12 @@ export default class DaylightApp {
 
         this.labels = historyData.map(item => item.date);
         this.values = historyData.map(item => [item.sunrise, item.sunset]);
+        this.longitude = data.longitude;
 
         return {
             labels: this.labels,
-            values: this.values
+            values: this.values,
+            longitude: this.longitude
         };
     }
 
